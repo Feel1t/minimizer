@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<a href="{{ path('main') }}" class="btn btn-info" style="margin-bottom: 20px;">Main</a>
+
+{% if new_link %}
+    <div class="alert">
+        <span>Created! Your link: {{ new_link }}</span>
+    </div>
+{% endif %}
+
+{% if links is not empty %}
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Link</th>
+                <th>Full url</th>
+                <th>Click count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for link in links %}
+                <tr>
+                    <td>{{ link.link }}</td>
+                    <td>{{ link.long_url }}</td>
+                    <td>{{ link.click_count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Empty! Try to create some short link.</p>
+{% endif %}
+
+{% endblock %}

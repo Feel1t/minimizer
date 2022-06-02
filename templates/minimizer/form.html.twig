@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="link-container">
+        <a href="{{ path('links_list') }}" class="btn btn-info">To the list</a>
+    </div>
+
+    <div class="form-wrapper">
+        {{ form(form, {method: 'POST', action: path('link_create')}) }}
+    </div>
+
+    <style>
+        .form-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .form-wrapper form {
+            width: 500px;
+        }
+
+        .link-container {
+            text-align: center;
+        }
+    </style>
+{% endblock body %}
